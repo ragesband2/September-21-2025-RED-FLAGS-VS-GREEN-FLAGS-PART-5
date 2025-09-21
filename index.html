@@ -1,0 +1,299 @@
+<html lang="tl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Red Flags vs Green Flags</title>
+<style>
+  /* Title Styles */
+  .title-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .main-title {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 0 0 10px cyan, 0 0 20px magenta, 0 0 30px red;
+    margin: 0;
+    letter-spacing: 2px;
+    animation: textGlow 2s ease infinite;
+  }
+  
+  /* Red Flags vs Green Flags Layout */
+  .content-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: calc(100vh - 100px); /* Adjust height to account for title */
+    padding: 0 20px 20px 20px;
+  }
+  
+  .section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  
+  .divider {
+    width: 4px;
+    background: linear-gradient(to bottom, magenta, deeppink, red, purple);
+    margin: 0 10px;
+    border-radius: 2px;
+  }
+  
+  h2 {
+    color: white;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #424242;
+    text-align: center;
+    animation: textGlow 2s ease infinite;
+  }
+  
+  .red-section h2 {
+    color: #ff6b6b;
+  }
+  
+  .green-section h2 {
+    color: #51cf66;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    animation: textGlow 2s ease infinite;
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  li:hover {
+    text-shadow: 0 0 15px cyan, 0 0 25px magenta, 0 0 35px red;
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+  
+  .red-section li {
+    border-left: 4px solid #ff6b6b;
+  }
+  
+  .green-section li {
+    border-left: 4px solid #51cf66;
+  }
+  
+  .number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .red-section .number {
+    background-color: #d32f2f;
+  }
+  
+  .green-section .number {
+    background-color: #388e3c;
+  }
+  
+  /* Background Animation Styles */
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease;
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 255, 0.4);
+    animation: bodyGradient 10s infinite linear;
+    z-index: 2;
+  }
+  
+  .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 10px solid transparent;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, magenta, deeppink, red, purple);
+    border-image-repeat: stretch;
+    margin: 0;
+    animation: borderPulse 10s infinite linear;
+    z-index: 3;
+  }
+  
+  @keyframes textGlow {
+    0% { text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15px cyan; }
+    33% { text-shadow: 0 0 5px magenta, 0 0 10px magenta, 0 0 15px magenta; }
+    66% { text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red; }
+    100% { text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15px cyan; }
+  }
+  
+  @keyframes bodyGradient {
+    0% { background: rgba(255, 0, 255, 0.4); }
+    8.33% { background: rgba(255, 127, 0, 0.4); }
+    16.66% { background: rgba(255, 255, 0, 0.4); }
+    25% { background: rgba(127, 255, 0, 0.4); }
+    33.33% { background: rgba(0, 255, 127, 0.4); }
+    41.66% { background: rgba(0, 255, 255, 0.4); }
+    50% { background: rgba(0, 127, 255, 0.4); }
+    58.33% { background: rgba(0, 0, 255, 0.4); }
+    66.66% { background: rgba(127, 0, 255, 0.4); }
+    75% { background: rgba(255, 0, 255, 0.4); }
+    83.33% { background: rgba(255, 0, 127, 0.4); }
+    91.66% { background: rgba(255, 127, 0, 0.4); }
+    100% { background: rgba(255, 0, 255, 0.4); }
+  }
+  
+  @keyframes borderPulse {
+    0% { border-color: rgba(255, 0, 255, 0.8); }
+    8.33% { border-color: rgba(255, 127, 0, 0.8); }
+    16.66% { border-color: rgba(255, 255, 0, 0.8); }
+    25% { border-color: rgba(127, 255, 0, 0.8); }
+    33.33% { border-color: rgba(0, 255, 127, 0.8); }
+    41.66% { border-color: rgba(0, 255, 255, 0.8); }
+    50% { border-color: rgba(0, 127, 255, 0.8); }
+    58.33% { border-color: rgba(0, 0, 255, 0.8); }
+    66.66% { border-color: rgba(127, 0, 255, 0.8); }
+    75% { border-color: rgba(255, 0, 255, 0.8); }
+    83.33% { border-color: rgba(255, 0, 127, 0.8); }
+    91.66% { border-color: rgba(255, 127, 0, 0.8); }
+    100% { border-color: rgba(255, 0, 255, 0.8); }
+  }
+</style>
+</head>
+<body>
+  <!-- Background Animation -->
+  <div class="background"></div>
+  <div class="gradient-overlay"></div>
+  <div class="border"></div>
+  
+  <!-- Title at Top Center with Continuous Glow Animation -->
+  <div class="title-container">
+    <h1 class="main-title">RED FLAGS VS GREEN FLAGS PART 5</h1>
+  </div>
+  
+  <!-- Red Flags vs Green Flags Content -->
+  <div class="content-container">
+    <!-- Left Section: Red Flags -->
+    <div class="section red-section">
+      <h2>Maling Tao / Red Flags</h2>
+      <ul>
+        <li style="animation-delay: 0s;"><span class="number">1</span> Ex</li>
+        <li style="animation-delay: 0.1s;"><span class="number">2</span> Monogamy</li>
+        <li style="animation-delay: 0.2s;"><span class="number">3</span> Bigamy</li>
+        <li style="animation-delay: 0.3s;"><span class="number">4</span> Di makamove on kahit ako nakamove on na</li>
+        <li style="animation-delay: 0.4s;"><span class="number">5</span> Wag na balikan ang nakaraan</li>
+        <li style="animation-delay: 0.5s;"><span class="number">6</span> Die is cast tapos nayun si ex may third party na</li>
+        <li style="animation-delay: 0.6s;"><span class="number">7</span> Si ex kasal sa iba</li>
+        <li style="animation-delay: 0.7s;"><span class="number">8</span> Ayoko na sa 1 is to 1 si ex hindi loyal iwan si ex focus ako sa bago</li>
+        <li style="animation-delay: 0.8s;"><span class="number">9</span> Adultery</li>
+        <li style="animation-delay: 0.9s;"><span class="number">10</span> Ilang beses ako mangangabit lahat single safe sa party basta wala silang adultery boyfriends sa kabila</li>
+        <li style="animation-delay: 1.0s;"><span class="number">11</span> Puso 100% wasak dapat may iba nayan</li>
+        <li style="animation-delay: 1.1s;"><span class="number">12</span> Ipatupad sa Pilipinas Republic Act Artic 69.69 Muslim People to marry multiple spouses na lahat ay single safe</li>
+        <li style="animation-delay: 1.2s;"><span class="number">13</span> Kapag ayaw nya na damihin ko mga jowa ko si ex dadami nya kung hindi nyako papalitan ng mabilisan</li>
+        <li style="animation-delay: 1.3s;"><span class="number">14</span> Hindi loyal sa isa gusto paramihin ang mga ex na gagawing tanga sina ex</li>
+        <li style="animation-delay: 1.4s;"><span class="number">15</span> Wag moko iwan patayin si ex sa utak nya iwan si ex damihin natin mga jowa natin matira matibay</li>
+        <li style="animation-delay: 1.5s;"><span class="number">16</span> Selosa ka pala e edi ayawan na mahal ko sila pero si ex na may third party mamatay ka na copy paste hindi natin mahal ang isat-isa magmove on ka na may iba pa naman dyan kung ayaw mo maghanap hindi na kita mahal</li>
+        <li style="animation-delay: 1.5s;"><span class="number">17</span> Kung hindi nila ako mahal bahala sila basta kapag lahat ng ex may sabit at single hindi safe wasakin natin puso nina ex nagsisi ako minahal kita nung una ayoko na damihin ko nalang mga jowa ko.</li>
+        <li style="animation-delay: 1.5s;"><span class="number">18</span> Kung ayaw mo mangabit at mangalunya hindi nga kita mahal kung dati tayo na ngayon mahal ko sila iwan kita ex hanap ako iba pagsisihin mo itong break natin break na tayo walang forever sayo.</li>
+      </ul>
+    </div>
+    
+    <!-- Vertical Divider -->
+    <div class="divider"></div>
+    
+    <!-- Right Section: Green Flags -->
+    <div class="section green-section">
+      <h2>Tamang Tao / Green Flags</h2>
+      <ul>
+         <li style="animation-delay: 0.2s;"><span class="number">1</span> Third Party.</li>
+        <li style="animation-delay: 0.3s;"><span class="number">2</span> Third Wheel.</li>
+        <li style="animation-delay: 0.4s;"><span class="number">3</span> Mistress</li>
+        <li style="animation-delay: 0.5s;"><span class="number">4</span> Rebound</li>
+        <li style="animation-delay: 0.6s;"><span class="number">5</span> Concubinage</li>
+        <li style="animation-delay: 0.7s;"><span class="number">6</span> Polygamy</li>
+        <li style="animation-delay: 0.8s;"><span class="number">7</span> One is to many</li>
+        <li style="animation-delay: 0.9s;"><span class="number">8</span> 50/50 Utak</li>
+        <li style="animation-delay: 1.0s;"><span class="number">9</span> Legal wives kasal sa puso</li>
+        <li style="animation-delay: 1.1s;"><span class="number">10</span> No Marriage involved lahat imbitado sa party</li>
+        <li style="animation-delay: 1.2s;"><span class="number">11</span> Mahal ko sila</li>
+        <li style="animation-delay: 1.3s;"><span class="number">12</span> Lahat sila akin ay akin</li>
+        <li style="animation-delay: 1.4s;"><span class="number">13</span> Matuto mangalahati at mangalunya</li>
+        <li style="animation-delay: 1.5s;"><span class="number">14</span> Lahat loyal sila nag-iistay</li>
+        <li style="animation-delay: 1.6s;"><span class="number">15</span> Iwan, let go pass sina ex sila nalang kaysa ako</li>
+        <li style="animation-delay: 1.7s;"><span class="number">16</span> Kapag selos ayaw wag pilitin kapag tinanggap nya nayung selos hindi kita mahal. Mahal ko sila lahat may consent walang selos both parties.</li>
+        <li style="animation-delay: 1.5s;"><span class="number">17</span> Mahal ko sila nakakasawa yung mahal kita tanga si ex hindi si polygamy warriors marami masaya</li>
+        <li style="animation-delay: 1.5s;"><span class="number">18</span> Proud ako maging kabit sa kanila sa ayaw at sa gusto nya break na tayo ex hayop ka</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const background = document.querySelector('.background');
+    const totalImages = 13; 
+    let index = 1;
+    
+    function changeImages() {
+      setInterval(() => {
+        background.style.transition = 'opacity 1s ease';
+        background.style.opacity = 0;
+        setTimeout(() => {
+          background.style.backgroundImage = `url('${index}.jpeg')`;
+          background.style.opacity = 1;
+          index = (index % totalImages) + 1;
+        }, 1000);
+      }, 4000);
+    }
+    
+    changeImages();
+  </script>
+</body>
+</html>
